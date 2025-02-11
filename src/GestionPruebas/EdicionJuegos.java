@@ -9,14 +9,14 @@ public class EdicionJuegos {
 	protected String ubicacion;
 	protected List<Participante> participantes;
 	protected List<PinkGuard> empleados;
-	protected List<Pruebas> pruebas;
+	protected List<Prueba> pruebas;
 
 	public EdicionJuegos(int anyo, String ubicacion) {
 		this.anyoEdicion = anyo;
 		this.ubicacion = ubicacion;
 		this.participantes = new ArrayList<Participante>(456);
 		this.empleados = new ArrayList<PinkGuard>();
-		this.pruebas = new ArrayList<Pruebas>();
+		this.pruebas = new ArrayList<Prueba>();
 	}
 
 	public void anadirJugador(Participante p) {
@@ -43,14 +43,14 @@ public class EdicionJuegos {
 		}
 	}
 
-	public void anadirPrueba(Pruebas p) {
+	public void anadirPrueba(Prueba p) {
 		if (p != null) {
 			this.pruebas.add(p);
 		}
 	}
 
-	public void anadirPruebas(Pruebas... p) {
-		for (Pruebas pa : p) {
+	public void anadirPruebas(Prueba... p) {
+		for (Prueba pa : p) {
 			this.anadirPrueba(pa);
 		}
 	}
@@ -82,7 +82,7 @@ public class EdicionJuegos {
 		return empleados;
 	}
 
-	public List<Pruebas> getPruebas() {
+	public List<Prueba> getPruebas() {
 		return pruebas;
 	}
 	
