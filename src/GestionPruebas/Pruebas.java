@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import excepciones.InfiltradoException;
+import excepciones.SupervisorException;
+import personajes.Participante;
+import personajes.Participante_Infiltrado;
+import pinkguards.Manager;
+
 public class Pruebas {
 	private String nombre;
 	private String descripcion;
@@ -17,24 +23,21 @@ public class Pruebas {
 		this.responsable=responsable;
 	}
 	
-	class ResponsableNoAsignado extends Exception{
-		//llamar a la excepcion de jerarquia ----> incluida en clase de guardias
-	}
 	
-	public void simularPruebas(double porcentajeEliminados) throws responsableNoAsignado{
+	public void simularPruebas(double porcentajeEliminados) throws SupervisorException, InfiltradoException {
 		if(responsable==null) {
-			throw new responsableNoAsignado("La prueba debe ser supervisada por un Manager, en caso contrario no iniciará");
+			throw new SupervisorException("La prueba debe ser supervisada por un Manager, en caso contrario no iniciará");
 		}
 		
-		int cantidadEliminados=Participantes_inscritos.size() * porcentajeEliminados;
+		double cantidadEliminados=Participantes_inscritos.size() * porcentajeEliminados;
 		Collections.shuffle(Participantes_inscritos);
 		for(int i=0;i<cantidadEliminados;i++) {
-			Participante eliminado=participantes_inscritos.get(i);
-			if(eliminado.esInfiltrado) {
-				//Llamar a la funcion y lanzar excepcion personalizada ---> inlcuida en clase de personajes
+			Participante eliminado=Participantes_inscritos.get(i);
+			if(eliminado instanceof Participante_Infiltrado) {
+				throw new InfiltradoException("Un participante infiltrado no puede ser eliminado");
 			}
 			Participantes_eliminados.add(eliminado);
 		}
-		participantes_inscritos.removeAll(participantes_eliminados);
+		Participantes_inscritos.removeAll(Participantes_eliminados);
 	}
 }
