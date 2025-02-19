@@ -1,4 +1,4 @@
-package Trabajo_Entornos;
+package enumerados;
 
 public enum Workers {
 	 Limpieza_eliminados,

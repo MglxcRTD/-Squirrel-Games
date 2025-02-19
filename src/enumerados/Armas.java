@@ -1,4 +1,4 @@
-package Trabajo_Entornos;
+package enumerados;
 
 public enum Armas {
 	PISTOLA_GLOCK17("Pistola Glock17"), RIFLE_ASALTO("Rifle de Asalto"), HECKLER_KOCHMP5("Heckler Koch MP5"),

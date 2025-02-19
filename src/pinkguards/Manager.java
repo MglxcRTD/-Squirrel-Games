@@ -3,21 +3,24 @@ package pinkguards;
 import java.util.ArrayList;
 import java.util.List;
 
+import GestionPruebas.Pruebas;
+import enumerados.Armas;
+
 public class Manager extends PinkGuard {
 
-	private TipoArma arma;
+	private Armas arma;
 	private int municion;
-	private Prueba prueba_asignada;
+	private Pruebas prueba_asignada;
 	private List<PinkGuard> equipo;
 
-	public Manager(String nombre, int municion, TipoArama arma) {
+	public Manager(String nombre, int municion, Armas arma) {
 		super(nombre);
 		this.arma = arma;
 		this.equipo = new ArrayList<>();
 
 	}
 
-	public void asignarPrueba(Prueba prueba) {
+	public void asignarPrueba(Pruebas prueba) {
 		this.prueba_asignada = prueba;
 	}
 

@@ -1,11 +1,13 @@
 package pinkguards;
 
+import enumerados.Armas;
+
 public class Soldiers extends PinkGuard {
 
-	private TipoArma arma;
+	private Armas arma;
 	private int municion;
 
-	public Soldiers(String nombre, Tipoarma arma, int municion) {
+	public Soldiers(String nombre, Armas arma, int municion) {
 		super(nombre);
 		this.arma = arma;
 		this.municion = municion;
