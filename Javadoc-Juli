@@ -1,0 +1,37 @@
+package pinkguards;
+/**
+ * Clase de trabajador que es heredera de la clase de PinkGuard.
+ * Cada trabajador tiene un departamento de trabajo en específico. 
+ */
+public class Workers extends PinkGuard  {
+	
+	
+	private Departamento departamento;
+	/**
+	 * Constructor de los datos e información de el trabajador.
+	 * @param nombre Nombre del trabajador.
+	 * @param departamento Nombre del departamento al que permanece el trabajador. 
+	 */
+
+	public Workers(String nombre, Departamento departamento) {
+		super(nombre);
+		this.departamento = departamento;
+	}
+	/**
+	 * Muestra una tabla con la información de el trabajador, donde incluye datos como: 
+	 * el nombre del trabajador, el departamento al que permanece el trabajador y su supervisor.
+	 */
+
+	@Override
+	public String toString() {
+		String info = """
+				---------------
+				Worker: %s
+				Departamento: %s
+				Supervisor: %s
+				""";
+		return String.format(info, this.nombre, this.departamento, this.supervisor.getNombre());
+	}
+
+}
+}
