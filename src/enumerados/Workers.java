@@ -1,6 +1,6 @@
 package enumerados;
 
-public enum Workers {
+public enum Departamentos {
 	 Limpieza_eliminados,
 	 Preparación_juegos,
 	 Limpieza_mantenimiento,

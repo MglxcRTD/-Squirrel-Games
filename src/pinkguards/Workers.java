@@ -1,9 +1,11 @@
 package pinkguards;
 
-public class Workers extends PinkGuard {
-	private Departamento departamento;
+import enumerados.Departamentos;
 
-	public Workers(String nombre, Departamento departamento) {
+public class Workers extends PinkGuard {
+	private Departamentos departamento;
+
+	public Workers(String nombre, Departamentos departamento) {
 		super(nombre);
 		this.departamento = departamento;
 	}
