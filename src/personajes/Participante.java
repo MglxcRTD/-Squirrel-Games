@@ -11,12 +11,12 @@ public class Participante {
 	private String nacionalidad;
 	private int monto_a_deber;
 
-	public Participante(String id, String nombre, String apellidos, int anio, int mes, int dia, String sexo,
+	public Participante(String id, String nombre, String apellidos, LocalDate fecha_nacimiento, String sexo,
 			String nacionalidad, int monto_a_deber) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.fecha_nacimiento = LocalDate.of(dia, mes, anio);
+		this.fecha_nacimiento=fecha_nacimiento;
 		this.sexo = sexo;
 		this.nacionalidad = nacionalidad;
 		this.monto_a_deber = monto_a_deber;

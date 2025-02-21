@@ -23,6 +23,11 @@ public class Pruebas {
 		this.responsable=responsable;
 	}
 	
+	public void inscribirParticipante(Participante p) {
+		if(p!=null && !Participantes_inscritos.contains(p)) {
+			Participantes_inscritos.add(p);
+		}
+	}
 	
 	public void simularPruebas(double porcentajeEliminados) throws SupervisorException, InfiltradoException {
 		if(responsable==null) {
@@ -37,7 +42,52 @@ public class Pruebas {
 				throw new InfiltradoException("Un participante infiltrado no puede ser eliminado");
 			}
 			Participantes_eliminados.add(eliminado);
+			System.err.println("El jugador: "+eliminado.getId()+" ha sido eliminado");
+
 		}
 		Participantes_inscritos.removeAll(Participantes_eliminados);
+		System.out.println("Quedan "+Participantes_inscritos.size()+" participantes");
 	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public List<Participante> getParticipantes_inscritos() {
+		return Participantes_inscritos;
+	}
+
+	public void setParticipantes_inscritos(List<Participante> participantes_inscritos) {
+		Participantes_inscritos = participantes_inscritos;
+	}
+
+	public List<Participante> getParticipantes_eliminados() {
+		return Participantes_eliminados;
+	}
+
+	public void setParticipantes_eliminados(List<Participante> participantes_eliminados) {
+		Participantes_eliminados = participantes_eliminados;
+	}
+
+	public Manager getResponsable() {
+		return responsable;
+	}
+
+	public void setResponsable(Manager responsable) {
+		this.responsable = responsable;
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import GestionPruebas.Pruebas;
 import enumerados.Armas;
+import personajes.Participante;
 
 public class Manager extends PinkGuard {
 
@@ -28,6 +29,12 @@ public class Manager extends PinkGuard {
 		equipo.add(miembro);
 	}
 
+	public void agregarMiembroEquipo(PinkGuard... miembro) {
+		for (PinkGuard pinkGuard : miembro) {
+			this.agregarMiembroEquipo(pinkGuard);
+		}
+	}
+	
 	public void recargar_municion(int cantidad) {
 		this.municion += cantidad;
 	}
