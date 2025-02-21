@@ -1,6 +1,8 @@
 package pinkguards;
 
-public abstract class PinkGuard {
+import excepciones.SupervisorException;
+
+public abstract class PinkGuard implements Comparable<PinkGuard> {
 	protected String nombre;
 	protected PinkGuard supervisor;
 
@@ -8,10 +10,19 @@ public abstract class PinkGuard {
 		this.nombre = nombre;
 	}
 
+	public abstract int getNivel();
+
+	@Override
+	public int compareTo(PinkGuard otro) {
+		return Integer.compare(this.getNivel(), otro.getNivel());
+	}
+
 	public void asignarSupervisor(PinkGuard supervisor) throws SupervisorException {
-		if (supervisor.getClass().equals(this.getClass()) || supervisor.getClass().isAssignableFrom(this.getClass())) {
+
+		if (supervisor.compareTo(this) <= 0) {
 			throw new SupervisorException("No se puede asignar un supervisor de igual o menor rango");
 		}
+
 		this.supervisor = supervisor;
 	}
 
@@ -22,6 +33,5 @@ public abstract class PinkGuard {
 	public PinkGuard getSupervisor() {
 		return supervisor;
 	}
-	
-	
+
 }

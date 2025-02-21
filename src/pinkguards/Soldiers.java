@@ -38,4 +38,9 @@ public class Soldiers extends PinkGuard {
 		return String.format(info, this.nombre, this.arma, this.municion, this.supervisor.getNombre());
 	}
 
+	@Override
+	public int getNivel() {
+		return 2;
+	}
+
 }

@@ -21,4 +21,9 @@ public class Workers extends PinkGuard {
 		return String.format(info, this.nombre, this.departamento, this.supervisor.getNombre());
 	}
 
+	@Override
+	public int getNivel() {
+		return 1;
+	}
+
 }
