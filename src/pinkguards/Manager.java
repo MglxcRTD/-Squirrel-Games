@@ -50,8 +50,8 @@ public class Manager extends PinkGuard {
 				Supervisor: %s
 				Equipo: %d miembros
 				""";
-		return String.format(info, this.nombre, this.arma, this.municion, this.prueba_asignada,
-				this.supervisor.getNombre(), this.equipo.size());
+		return String.format(info, this.nombre, this.arma, this.municion, this.prueba_asignada.getNombre(),
+				this.getNombre(), this.equipo.size());
 	}
 
 	@Override

@@ -29,10 +29,13 @@ public class EdicionJuegos {
 	}
 
 	public void anadirJugadores(Participante... p) {
-		for (Participante pa : p) {
-			this.anadirJugador(pa);
-		}
+	    for (Participante pa : p) {
+	        if (pa != null) {
+	            this.anadirJugador(pa);
+	        }
+	    }
 	}
+
 
 	public void anadirEmpleado(PinkGuard p) {
 		if (p != null) {

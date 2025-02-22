@@ -39,16 +39,28 @@ public class Main {
         Soldiers soldier1=new Soldiers("s1", Armas.RIFLE_ASALTO, 100);
         Soldiers soldier2=new Soldiers("s2", Armas.HECKLER_KOCHG3, 100);
         Soldiers soldier3=new Soldiers("s3", Armas.HECKLER_KOCHMP5, 100);
-          
+         
         
         // Crear un Manager
-        Manager manager = new Manager("Capitán", 50, Armas.PISTOLA_GLOCK17);
-        edicion.anadirEmpleado(manager);
-        manager.agregarMiembroEquipo(worker1,worker2,worker3,worker4,soldier1,soldier2,soldier3);
+        Manager supervisor = new Manager("Capitán", 50, Armas.PISTOLA_GLOCK17);
+        
+        try {
+            // Asignar el supervisor a los trabajadores
+            worker1.asignarSupervisor(supervisor);
+            worker2.asignarSupervisor(supervisor);
+            soldier1.asignarSupervisor(supervisor);
+            soldier2.asignarSupervisor(supervisor);
+        } catch (SupervisorException e) {
+           System.err.println(e.getMessage());
+        } 
+        
+        //Añade empleados a la edicion de los juegos y al equipo del supervisor.
+        edicion.anadirEmpleados(worker1,worker2,worker3,worker4,soldier1,soldier2,soldier3,supervisor);
+        supervisor.agregarMiembroEquipo(worker1,worker2,worker3,worker4,soldier1,soldier2,soldier3);
         
         
         // Crear una prueba
-        Pruebas prueba1 = new Pruebas("Luz Roja, Luz Verde", "Los participantes deben detenerse cuando la luz sea roja", manager);
+        Pruebas prueba1 = new Pruebas("Luz Roja, Luz Verde", "Los participantes deben detenerse cuando la luz sea roja", supervisor);
         edicion.anadirPrueba(prueba1);
         
         // Inscribir los participantes iniciales en la prueba
@@ -57,23 +69,24 @@ public class Main {
         prueba1.inscribirParticipante(p3);
         
         // Agregar 456 jugadores adicionales a la prueba
-        for (int i = 4; i <= 456; i++) {
+        for (int i = 2; i <= 456; i++) {
             Participante p = new Participante("P" + i, "Jugador" + i, "Apellido" + i, LocalDate.of(1990, 01, 01), "M", "País" + i, 1000);
             edicion.anadirJugador(p);
             prueba1.inscribirParticipante(p);
         }
         
         // Asignar la prueba al Manager
-        manager.asignarPrueba(prueba1);
+        supervisor.asignarPrueba(prueba1);
+        System.out.println(supervisor.toString());
         
         // Iniciar la prueba
-        System.out.println("Iniciando la prueba: " + prueba1.getNombre());
+        System.out.println(prueba1.toString());
         
         // Mostrar participantes inscritos en la prueba
         System.out.println("Participantes en la prueba: " + prueba1.getParticipantes_inscritos().size());
         
         try {
-            prueba1.simularPruebas(0.5);
+            prueba1.simularPruebas(0.1);
         } catch (SupervisorException | InfiltradoException e) {
             System.err.println(e.getMessage());
         }
