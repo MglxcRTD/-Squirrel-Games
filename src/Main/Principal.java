@@ -14,7 +14,7 @@ import enumerados.Departamentos;
 import excepciones.InfiltradoException;
 import excepciones.SupervisorException;
 
-public class Main {
+public class Principal {
     public static void main(String[] args) {
         // Crear una edición del juego
         EdicionJuegos edicion = new EdicionJuegos(2025, "Isla Misteriosa");

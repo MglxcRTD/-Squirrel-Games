@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Armas.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Principal (2 mar 2025 19:21:04)</a> &gt; <a href="../../index.html" class="el_group">SquirrelGames</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">enumerados</a> &gt; <span class="el_source">Armas.java</span></div><h1>Armas.java</h1><pre class="source lang-java linenums">package enumerados;
+
+/**
+ * Enum que representa diferentes tipos de armas utilizadas en el sistema. Cada
+ * arma está asociada con su nombre en formato de cadena.
+ * 
+ * &lt;p&gt;
+ * Este enum permite representar las armas de manera más estructurada y segura,
+ * proporcionando constantes para cada tipo de arma, evitando el uso de cadenas
+ * de texto arbitrarias.
+ * &lt;/p&gt;
+ * 
+ * @author [Miguel, Sergio, Daniel y Crisveling]
+ * @version 1.0
+ * @since 2025
+ */
+<span class="fc" id="L17">public enum Armas {</span>
+
+<span class="fc" id="L19">	// Definición de las armas disponibles, asociadas a una descripción textual</span>
+<span class="fc" id="L20">	PISTOLA_GLOCK17(&quot;Pistola Glock17&quot;), RIFLE_ASALTO(&quot;Rifle de Asalto&quot;), HECKLER_KOCHMP5(&quot;Heckler Koch MP5&quot;),</span>
+<span class="fc" id="L21">	RIFLE_AUTOMATICO(&quot;Rifle Automático&quot;), HECKLER_KOCHG3(&quot;Heckler Koch G3&quot;),</span>
+<span class="fc" id="L22">	SMITH_WESSON_MODEL10(&quot;Smith &amp; Wesson Model 10&quot;);</span>
+
+	// Atributo que almacena la descripción textual del arma
+	private final String arma;
+
+	/**
+	 * Constructor del enum, que asigna el nombre del arma a la constante.
+	 * 
+	 * @param arma Nombre del arma, que se mostrará en la representación textual.
+	 */
+<span class="fc" id="L32">	private Armas(String arma) {</span>
+<span class="fc" id="L33">		this.arma = arma;</span>
+<span class="fc" id="L34">	}</span>
+
+	/**
+	 * Método que devuelve el nombre del arma asociada a la constante.
+	 * 
+	 * @return El nombre del arma.
+	 */
+	public String getArma() {
+<span class="nc" id="L42">		return arma;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span>Principal (2 mar 2025 19:21:04)</div></body></html>

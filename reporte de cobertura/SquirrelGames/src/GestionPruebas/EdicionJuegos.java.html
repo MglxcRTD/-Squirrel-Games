@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EdicionJuegos.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Principal (2 mar 2025 19:21:04)</a> &gt; <a href="../../index.html" class="el_group">SquirrelGames</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">GestionPruebas</a> &gt; <span class="el_source">EdicionJuegos.java</span></div><h1>EdicionJuegos.java</h1><pre class="source lang-java linenums">package GestionPruebas;
+
+/**
+ * Importación de la clase {@link personajes.Participante} desde el paquete {@link personajes}.
+ * {@link Participante} representa a un jugador que participa en la edición de los juegos.
+ */
+import personajes.Participante;
+
+/**
+ * Importación de la clase {@link pinkguards.PinkGuard} desde el paquete {@link pinkguards}.
+ * {@link PinkGuard} representa a un miembro del personal encargado de la organización de los juegos, como un worker o supervisor.
+ */
+import pinkguards.PinkGuard;
+
+/**
+ * Importación de la clase {@link java.util.ArrayList} desde el paquete {@link java.util}.
+ * {@link ArrayList} es una implementación de la interfaz {@link List} que se utiliza para almacenar elementos en una lista dinámica.
+ */
+import java.util.ArrayList;
+
+/**
+ * Importación de la clase {@link java.util.List} desde el paquete {@link java.util}.
+ * {@link List} es una interfaz que define el comportamiento de una colección de elementos ordenados, que permite el acceso a los elementos por su índice.
+ */
+import java.util.List;
+
+/**
+ * Representa una edición de los Squirrel Games.
+ * 
+ * &lt;p&gt;
+ * La clase gestiona todos los aspectos de una edición específica de los juegos,
+ * incluidos los participantes, los empleados (Pink Guards), y las pruebas
+ * asignadas a la edición.
+ * &lt;/p&gt;
+ * 
+ * &lt;p&gt;
+ * Se permite añadir jugadores, empleados y pruebas a la edición, así como
+ * acceder a detalles sobre la edición como su año y ubicación.
+ * &lt;/p&gt;
+ * 
+ * @author [Miguel, Sergio, Daniel y Crisveling]
+ * @version 1.0
+ * @since 2025
+ * @see Participante
+ * @see PinkGuard
+ * @see Pruebas
+ */
+public class EdicionJuegos {
+
+	/** Año en el que se realiza la edición de los juegos. */
+	protected int anyoEdicion;
+
+	/** Ubicación donde se celebran los juegos de la edición. */
+	protected String ubicacion;
+
+	/** Lista de participantes en esta edición de los juegos. */
+	protected List&lt;Participante&gt; participantes;
+
+	/**
+	 * Lista de empleados (Pink Guards) encargados de supervisar y organizar los
+	 * juegos.
+	 */
+	protected List&lt;PinkGuard&gt; empleados;
+
+	/** Lista de pruebas que se realizan en la edición de los juegos. */
+	protected List&lt;Pruebas&gt; pruebas;
+
+	/**
+	 * Constructor que inicializa una nueva edición de los juegos con el año y la
+	 * ubicación proporcionados.
+	 * 
+	 * @param anyo      Año de la edición de los juegos.
+	 * @param ubicacion Ubicación de la edición de los juegos.
+	 */
+<span class="fc" id="L75">	public EdicionJuegos(int anyo, String ubicacion) {</span>
+<span class="fc" id="L76">		this.anyoEdicion = anyo;</span>
+<span class="fc" id="L77">		this.ubicacion = ubicacion;</span>
+<span class="fc" id="L78">		this.participantes = new ArrayList&lt;Participante&gt;(456); // Inicializa la lista con capacidad inicial de 456.</span>
+<span class="fc" id="L79">		this.empleados = new ArrayList&lt;PinkGuard&gt;(); // Lista para empleados (Pink Guards).</span>
+<span class="fc" id="L80">		this.pruebas = new ArrayList&lt;Pruebas&gt;(); // Lista para las pruebas.</span>
+<span class="fc" id="L81">	}</span>
+
+	/**
+	 * Añade un jugador a la lista de participantes de la edición de los juegos.
+	 * 
+	 * @param p Jugador a añadir a la lista.
+	 */
+	public void anadirJugador(Participante p) {
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		if (p != null) {</span>
+<span class="fc" id="L90">			this.participantes.add(p);</span>
+		}
+<span class="fc" id="L92">	}</span>
+
+	/**
+	 * Añade múltiples jugadores a la lista de participantes.
+	 * 
+	 * @param p Jugadores a añadir.
+	 */
+	public void anadirJugadores(Participante... p) {
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		for (Participante pa : p) {</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">			if (pa != null) {</span>
+<span class="fc" id="L102">				this.anadirJugador(pa);</span>
+			}
+		}
+<span class="fc" id="L105">	}</span>
+
+	/**
+	 * Añade un empleado (Pink Guard) a la lista de empleados de la edición.
+	 * 
+	 * @param p Empleado (Pink Guard) a añadir.
+	 */
+	public void anadirEmpleado(PinkGuard p) {
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">		if (p != null) {</span>
+<span class="fc" id="L114">			this.empleados.add(p);</span>
+		}
+<span class="fc" id="L116">	}</span>
+
+	/**
+	 * Añade múltiples empleados (Pink Guards) a la lista de empleados.
+	 * 
+	 * @param p Empleados (Pink Guards) a añadir.
+	 */
+	public void anadirEmpleados(PinkGuard... p) {
+<span class="fc bfc" id="L124" title="All 2 branches covered.">		for (PinkGuard pi : p) {</span>
+<span class="fc" id="L125">			this.anadirEmpleado(pi);</span>
+		}
+<span class="fc" id="L127">	}</span>
+
+	/**
+	 * Añade una prueba a la lista de pruebas de la edición de los juegos.
+	 * 
+	 * @param p Prueba a añadir.
+	 */
+	public void anadirPrueba(Pruebas p) {
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">		if (p != null) {</span>
+<span class="fc" id="L136">			this.pruebas.add(p);</span>
+		}
+<span class="fc" id="L138">	}</span>
+
+	/**
+	 * Añade múltiples pruebas a la lista de pruebas de la edición.
+	 * 
+	 * @param p Pruebas a añadir.
+	 */
+	public void anadirPruebas(Pruebas... p) {
+<span class="nc bnc" id="L146" title="All 2 branches missed.">		for (Pruebas pa : p) {</span>
+<span class="nc" id="L147">			this.anadirPrueba(pa);</span>
+		}
+<span class="nc" id="L149">	}</span>
+
+	/**
+	 * Devuelve una representación en forma de cadena de la edición de los juegos,
+	 * mostrando el año y la ubicación.
+	 * 
+	 * @return Una cadena que describe la edición de los juegos.
+	 */
+	@Override
+	public String toString() {
+<span class="fc" id="L159">		String i = String.format(&quot;&quot;&quot;</span>
+				   | SQUIRREL GAMES |
+				Edicion   ---   Ubicacion
+				  %d           %s
+<span class="fc" id="L163">				&quot;&quot;&quot;, this.anyoEdicion, this.ubicacion);</span>
+
+<span class="fc" id="L165">		return i;</span>
+	}
+
+	/**
+	 * Obtiene el año de la edición de los juegos.
+	 * 
+	 * @return Año de la edición.
+	 */
+	public int getAnyoEdicion() {
+<span class="nc" id="L174">		return anyoEdicion;</span>
+	}
+
+	/**
+	 * Obtiene la ubicación donde se celebra la edición de los juegos.
+	 * 
+	 * @return Ubicación de la edición de los juegos.
+	 */
+	public String getUbicacion() {
+<span class="nc" id="L183">		return ubicacion;</span>
+	}
+
+	/**
+	 * Obtiene la lista de participantes en la edición de los juegos.
+	 * 
+	 * @return Lista de los participantes.
+	 */
+	public List&lt;Participante&gt; getParticipantes() {
+<span class="nc" id="L192">		return participantes;</span>
+	}
+
+	/**
+	 * Obtiene la lista de empleados (Pink Guards) asignados a la edición de los
+	 * juegos.
+	 * 
+	 * @return Lista de empleados.
+	 */
+	public List&lt;PinkGuard&gt; getEmpleados() {
+<span class="nc" id="L202">		return empleados;</span>
+	}
+
+	/**
+	 * Obtiene la lista de las pruebas de la edición de los juegos.
+	 * 
+	 * @return Lista de las pruebas.
+	 */
+	public List&lt;Pruebas&gt; getPruebas() {
+<span class="nc" id="L211">		return pruebas;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span>Principal (2 mar 2025 19:21:04)</div></body></html>

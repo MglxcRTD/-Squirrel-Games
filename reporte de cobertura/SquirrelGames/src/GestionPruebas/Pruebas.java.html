@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Pruebas.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Principal (2 mar 2025 19:21:04)</a> &gt; <a href="../../index.html" class="el_group">SquirrelGames</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">GestionPruebas</a> &gt; <span class="el_source">Pruebas.java</span></div><h1>Pruebas.java</h1><pre class="source lang-java linenums">package GestionPruebas;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import excepciones.InfiltradoException;
+import excepciones.SupervisorException;
+import personajes.Participante;
+import personajes.Participante_Infiltrado;
+import pinkguards.Manager;
+
+public class Pruebas {
+	private String nombre;
+	private String descripcion;
+<span class="fc" id="L16">	private List&lt;Participante&gt; Participantes_inscritos=new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L17">	private List&lt;Participante&gt; Participantes_eliminados=new ArrayList&lt;&gt;();</span>
+	private Manager responsable;
+	
+<span class="fc" id="L20">	public Pruebas(String nombre, String descripcion, Manager responsable) {</span>
+<span class="fc" id="L21">		this.nombre=nombre;</span>
+<span class="fc" id="L22">		this.descripcion=descripcion;</span>
+<span class="fc" id="L23">		this.responsable=responsable;</span>
+<span class="fc" id="L24">	}</span>
+	
+	//Verifica que no se inscriban participantes nulos
+	public void inscribirParticipante(Participante p) {
+<span class="pc bpc" id="L28" title="2 of 4 branches missed.">		if(p!=null &amp;&amp; !Participantes_inscritos.contains(p)) {</span>
+<span class="fc" id="L29">			Participantes_inscritos.add(p);</span>
+		}
+<span class="fc" id="L31">	}</span>
+	
+	
+	public void simularPruebas(double porcentajeEliminados) throws SupervisorException, InfiltradoException {
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">		if(responsable==null) {</span>
+<span class="nc" id="L36">			throw new SupervisorException(&quot;La prueba debe ser supervisada por un Manager, en caso contrario no iniciará&quot;);</span>
+		}
+		
+		//Verifica que el porcentaje de eliminados esté entre 0 y 1 (0 y 100).
+<span class="pc bpc" id="L40" title="2 of 4 branches missed.">		if(porcentajeEliminados &lt;0 || porcentajeEliminados &gt; 1) { </span>
+<span class="nc" id="L41">			throw new IllegalArgumentException(&quot;El porcentaje de eliminados debe estar entre 0 y 1&quot;);</span>
+		}
+		
+		//Calcular la cantidad de eliminados, al poder sacar resultado decimal, se aproxima al entero más bajo con Math.floor
+<span class="fc" id="L45">		int cantidadEliminados=(int) Math.floor((int) (Participantes_inscritos.size() * porcentajeEliminados));</span>
+<span class="fc" id="L46">		System.out.println(&quot;El porcentaje de eliminados es del &quot;+(porcentajeEliminados*100)+&quot;%&quot;);</span>
+		
+		//Verificar que la cantidad de eliminados no supere el tamaño de eliminados
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">		if(cantidadEliminados &gt; Participantes_inscritos.size()) {</span>
+<span class="nc" id="L50">			cantidadEliminados=Participantes_inscritos.size();</span>
+		}
+		
+		//Randomiza la lista para que las eliminaciones sean aleatorias.
+<span class="fc" id="L54">		Collections.shuffle(Participantes_inscritos);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		for(int i=0;i&lt;cantidadEliminados;i++) {</span>
+<span class="fc" id="L56">			Participante eliminado=Participantes_inscritos.get(i);</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">			if(eliminado instanceof Participante_Infiltrado) {</span>
+<span class="nc" id="L58">				throw new InfiltradoException(&quot;Un participante infiltrado no puede ser eliminado&quot;);</span>
+			}
+<span class="fc" id="L60">			Participantes_eliminados.add(eliminado);</span>
+<span class="fc" id="L61">			System.err.println(&quot;El jugador: &quot;+eliminado.getId()+&quot; ha sido eliminado&quot;);</span>
+
+		}
+		
+		//Elimina a todos los eliminados de la lista de inscritos
+<span class="fc" id="L66">		Participantes_inscritos.removeAll(Participantes_eliminados);</span>
+<span class="fc" id="L67">		System.out.println(&quot;Quedan &quot;+Participantes_inscritos.size()+&quot; participantes&quot;);</span>
+<span class="fc" id="L68">	}</span>
+
+	@Override
+	public String toString() {
+<span class="fc" id="L72">	    StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L73">	    sb.append(&quot;***************************************\n&quot;);</span>
+<span class="fc" id="L74">	    sb.append(&quot;* PRUEBA: &quot;).append(nombre).append(&quot;\n&quot;);</span>
+<span class="fc" id="L75">	    sb.append(&quot;*--------------------------------------\n&quot;);</span>
+<span class="fc" id="L76">	    sb.append(&quot;* DESCRIPCIÓN: &quot;).append(descripcion).append(&quot;\n&quot;);</span>
+<span class="fc" id="L77">	    sb.append(&quot;*--------------------------------------\n&quot;);</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">	    sb.append(&quot;* RESPONSABLE: &quot;).append(responsable != null ? responsable.getNombre() : &quot;No asignado&quot;).append(&quot;\n&quot;);</span>
+<span class="fc" id="L79">	    sb.append(&quot;***************************************\n&quot;);</span>
+<span class="fc" id="L80">	    return sb.toString();</span>
+	}
+
+	public String getNombre() {
+<span class="fc" id="L84">		return nombre;</span>
+	}
+
+	public void setNombre(String nombre) {
+<span class="nc" id="L88">		this.nombre = nombre;</span>
+<span class="nc" id="L89">	}</span>
+
+	public String getDescripcion() {
+<span class="nc" id="L92">		return descripcion;</span>
+	}
+
+	public void setDescripcion(String descripcion) {
+<span class="nc" id="L96">		this.descripcion = descripcion;</span>
+<span class="nc" id="L97">	}</span>
+
+	public List&lt;Participante&gt; getParticipantes_inscritos() {
+<span class="fc" id="L100">		return Participantes_inscritos;</span>
+	}
+
+	public void setParticipantes_inscritos(List&lt;Participante&gt; participantes_inscritos) {
+<span class="nc" id="L104">		Participantes_inscritos = participantes_inscritos;</span>
+<span class="nc" id="L105">	}</span>
+
+	public List&lt;Participante&gt; getParticipantes_eliminados() {
+<span class="nc" id="L108">		return Participantes_eliminados;</span>
+	}
+
+	public void setParticipantes_eliminados(List&lt;Participante&gt; participantes_eliminados) {
+<span class="nc" id="L112">		Participantes_eliminados = participantes_eliminados;</span>
+<span class="nc" id="L113">	}</span>
+
+	public Manager getResponsable() {
+<span class="nc" id="L116">		return responsable;</span>
+	}
+
+	public void setResponsable(Manager responsable) {
+<span class="nc" id="L120">		this.responsable = responsable;</span>
+<span class="nc" id="L121">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span>Principal (2 mar 2025 19:21:04)</div></body></html>

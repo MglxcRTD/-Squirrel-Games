@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Participante.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Principal (2 mar 2025 19:21:04)</a> &gt; <a href="../../index.html" class="el_group">SquirrelGames</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">personajes</a> &gt; <span class="el_source">Participante.java</span></div><h1>Participante.java</h1><pre class="source lang-java linenums">package personajes;
+
+import java.time.LocalDate;
+
+public class Participante {
+	private String id;
+	private String nombre;
+	private String apellidos;
+	private LocalDate fecha_nacimiento;
+	private String sexo;
+	private String nacionalidad;
+	private int monto_a_deber;
+
+<span class="fc" id="L14">	public Participante(String id, String nombre, String apellidos, LocalDate fecha_nacimiento, String sexo,</span>
+			String nacionalidad, int monto_a_deber) {
+<span class="fc" id="L16">		this.id = id;</span>
+<span class="fc" id="L17">		this.nombre = nombre;</span>
+<span class="fc" id="L18">		this.apellidos = apellidos;</span>
+<span class="fc" id="L19">		this.fecha_nacimiento=fecha_nacimiento;</span>
+<span class="fc" id="L20">		this.sexo = sexo;</span>
+<span class="fc" id="L21">		this.nacionalidad = nacionalidad;</span>
+<span class="fc" id="L22">		this.monto_a_deber = monto_a_deber;</span>
+<span class="fc" id="L23">	}</span>
+
+	public String getId() {
+<span class="fc" id="L26">		return id;</span>
+	}
+
+	public String getNombre() {
+<span class="nc" id="L30">		return nombre;</span>
+	}
+
+	public String getApellidos() {
+<span class="nc" id="L34">		return apellidos;</span>
+	}
+
+	public LocalDate getFecha_nacimiento() {
+<span class="nc" id="L38">		return fecha_nacimiento;</span>
+	}
+
+	public String getSexo() {
+<span class="nc" id="L42">		return sexo;</span>
+	}
+
+	public String getNacionalidad() {
+<span class="nc" id="L46">		return nacionalidad;</span>
+	}
+
+	public int getMonto_a_deber() {
+<span class="nc" id="L50">		return monto_a_deber;</span>
+	}
+	
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span>Principal (2 mar 2025 19:21:04)</div></body></html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Workers.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Principal (2 mar 2025 19:21:04)</a> &gt; <a href="../../index.html" class="el_group">SquirrelGames</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pinkguards</a> &gt; <span class="el_source">Workers.java</span></div><h1>Workers.java</h1><pre class="source lang-java linenums">package pinkguards;
+
+import enumerados.Departamentos;
+
+public class Workers extends PinkGuard {
+	private Departamentos departamento;
+
+	public Workers(String nombre, Departamentos departamento) {
+<span class="fc" id="L9">		super(nombre);</span>
+<span class="fc" id="L10">		this.departamento = departamento;</span>
+<span class="fc" id="L11">	}</span>
+
+	@Override
+	public String toString() {
+<span class="nc" id="L15">		String info = &quot;&quot;&quot;</span>
+				---------------
+				Worker: %s
+				Departamento: %s
+				Supervisor: %s
+				&quot;&quot;&quot;;
+<span class="nc" id="L21">		return String.format(info, this.nombre, this.departamento, this.supervisor.getNombre());</span>
+	}
+
+	@Override
+	public int getNivel() {
+<span class="fc" id="L26">		return 1;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span>Principal (2 mar 2025 19:21:04)</div></body></html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Participante_Infiltrado.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Principal (2 mar 2025 19:21:04)</a> &gt; <a href="../../index.html" class="el_group">SquirrelGames</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">personajes</a> &gt; <span class="el_source">Participante_Infiltrado.java</span></div><h1>Participante_Infiltrado.java</h1><pre class="source lang-java linenums">package personajes;
+
+import java.time.LocalDate;
+
+public class Participante_Infiltrado extends Participante {
+
+	private String nombre_falso;
+
+	public Participante_Infiltrado(String id, String nombre, String apellidos, LocalDate fecha_nacimiento, String sexo,
+			String nacionalidad, int monto_a_deber, String nombre_falso) {
+<span class="fc" id="L11">		super(id, nombre, apellidos, fecha_nacimiento, sexo, nacionalidad, monto_a_deber);</span>
+<span class="fc" id="L12">		this.nombre_falso = nombre_falso;</span>
+<span class="fc" id="L13">	}</span>
+
+	public String getNombre_falso() {
+<span class="nc" id="L16">		return nombre_falso;</span>
+	}
+
+	public void setNombre_falso(String nombre_falso) {
+<span class="nc" id="L20">		this.nombre_falso = nombre_falso;</span>
+<span class="nc" id="L21">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span>Principal (2 mar 2025 19:21:04)</div></body></html>
