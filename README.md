@@ -47,10 +47,10 @@ Además, se visualizará la prueba a realizar junto con una breve descripción d
 
 ## 🧑‍💻 **Tecnologías Utilizadas**
 
-Java: Lenguaje de programación principal para el desarrollo del proyecto.
-Eclipse: IDE utilizado para la escritura y ejecución del código.
-Maven (si aplica): Herramienta de gestión de dependencias (si el proyecto utiliza alguna librería externa).
-JUnit (si aplica): Framework para la realización de pruebas unitarias.
+- Java: Lenguaje de programación principal para el desarrollo del proyecto.
+- Eclipse: IDE utilizado para la escritura y ejecución del código.
+- Maven (si aplica): Herramienta de gestión de dependencias (si el proyecto utiliza alguna librería externa).
+- JUnit (si aplica): Framework para la realización de pruebas unitarias.
 
 ## 🙌 **Colaboradores**
 
